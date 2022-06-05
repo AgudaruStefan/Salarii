@@ -3,6 +3,9 @@ from tkinter import ttk
 from ttkthemes import themed_tk as tk1
 import tkinter as tk
 import requests
+import datetime
+
+date = datetime.datetime.now()
 
 url = "https://api.apilayer.com/exchangerates_data/latest?symbols=RON&base=EUR"
 
@@ -327,6 +330,8 @@ def deducerePersonala(x,y):
 
     elif 3201 <= x <= 3250 and y == 0:
         return 120
+    elif 3201 <= x <= 3250 and y == 0:
+        return 120
     elif 3201 <= x <= 3250 and y == 1:
         return 280
     elif 3201 <= x <= 3250 and y == 2:
@@ -620,7 +625,7 @@ def CalculatorPTSAlariuBrut():
 root = tk1.ThemedTk()
 root.get_themes()
 root.set_theme("plastik")
-root.geometry("1200x500")
+root.geometry("1100x500")
 root.config(bg="white")
 root.resizable(width=False, height=False)
 root.title('Calculator Salarii')
@@ -628,8 +633,8 @@ root.title('Calculator Salarii')
 my_notebook = ttk.Notebook(root)
 my_notebook.pack(pady=15)
 
-my_frame1 = Frame(my_notebook, width=1200, height=600, bg='#0099FF')
-my_frame2 = Frame(my_notebook, width=1200, height=600, bg='#0099FF')
+my_frame1 = Frame(my_notebook, width=1200, height=600, bg='#89CFF0')
+my_frame2 = Frame(my_notebook, width=1200, height=600, bg='#89CFF0')
 
 my_frame1.pack(fill='both', expand=1)
 my_frame2.pack(fill='both', expand=1)
@@ -676,67 +681,73 @@ euronetk = StringVar()
 euronet2k = StringVar()
 
 
-l2 = Label(my_frame1, text="Salariu brut*:", font=("Arial", 10), fg="Black", bg='#0099FF')
-e1 = Entry(my_frame1, font=("Arial", 11), textvariable=v1, borderwidth=5)
+l2 = Label(my_frame1, text="Salariu brut*:", font=("Arial Bold", 10), fg="Red", bg='#89CFF0')
+e1 = Entry(my_frame1, font=("Arial", 11), textvariable=v1, borderwidth=3)
 
-l3 = Label(my_frame1, text="Persoane in intretinere*:", font=("Arial", 10), fg="Black", bg='#0099FF')
-e2 = Entry(my_frame1, font=("Arial", 11), textvariable=v2, borderwidth=5)
+l3 = Label(my_frame1, text="Persoane in intretinere*:", font=("Arial Bold", 10), fg="Red", bg='#89CFF0')
+e2 = Entry(my_frame1, font=("Arial", 11), textvariable=v2, borderwidth=3)
 # Calculnet_btn = PhotoImage(file='desktop/calculate-buton-md.png')
-b1 = ttk.Button(my_frame1, text="Calcul salariu net",  command=CalculatorPTSAlariuNET )
+b1 = ttk.Button(my_frame1, text="Calcul salariu net",  command=CalculatorPTSAlariuNET)
 
-l6 = Label(my_frame1, text="Salariu NET", font=("Arial", 10), fg="Black", bg='#0099FF')
-e5 = Entry(my_frame1, font=("Arial", 11), state='disabled', textvariable=v5, borderwidth=5)
+l6 = Label(my_frame1, text="Salariu NET:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+e5 = Entry(my_frame1, font=("Arial", 11), state='disabled', textvariable=v5, borderwidth=3)
 
 
-l4 = Label(my_frame2, text="Salariu net:", font=("Arial", 10), fg="Black", bg='#0099FF')
-e3 = Entry(my_frame2, font=("Arial", 11), textvariable=v3, borderwidth=5)
+l4 = Label(my_frame2, text="Salariu net*:", font=("Arial Bold", 10), fg="Red", bg='#89CFF0')
+e3 = Entry(my_frame2, font=("Arial", 11), textvariable=v3, borderwidth=3)
 
-l5 = Label(my_frame2, text="Persoane in intretinere:", font=("Arial", 10), fg="Black", bg='#0099FF')
-e4 = Entry(my_frame2, font=("Arial", 11), textvariable=v4, borderwidth=5)
+l5 = Label(my_frame2, text="Persoane in intretinere*:", font=("Arial Bold", 10), fg="Red", bg='#89CFF0')
+e4 = Entry(my_frame2, font=("Arial", 11), textvariable=v4, borderwidth=3)
 
 b2 = ttk.Button(my_frame2, text="Calcul salariu brut",  command=CalculatorPTSAlariuBrut)
 
-l10 = Label(my_frame2, text="Salariu Brut", font=("Arial", 10), fg="Black", bg='#0099FF')
-e10 = Entry(my_frame2, font=("Arial", 11), state='disabled', textvariable=v10, borderwidth=5)
+l10 = Label(my_frame2, text="Salariu BRUT:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+e10 = Entry(my_frame2, font=("Arial", 11), state='disabled', textvariable=v10, borderwidth=3)
 
 
 
 #contributii frame 1
-euroL = Label(my_frame1, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
-leiL = Label(my_frame1, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
-l20 = Label(my_frame1, text="Contributii angajat:", font=("Arial", 10), fg="Black", bg='#0099FF')
+euroL = Label(my_frame1, text="EURO", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+leiL = Label(my_frame1, text="LEI", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l20 = Label(my_frame1, text="Contributii angajat:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
-l21 = Label(my_frame1, text="CAS:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l22 = Label(my_frame1, text="CASS:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l23 = Label(my_frame1, text="DP:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l24 = Label(my_frame1, text="Impozit:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l21 = Label(my_frame1, text="CAS:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l22 = Label(my_frame1, text="CASS:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l23 = Label(my_frame1, text="Deducere personala:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l24 = Label(my_frame1, text="Impozit pe venit:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
-l25 = Label(my_frame1, text="Contributii angajator:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l26 = Label(my_frame1, text="CAM:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l25 = Label(my_frame1, text="Contributii angajator:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l26 = Label(my_frame1, text="CAM:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
 # entry variable
 
-e21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21, borderwidth=5)
-ee21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21E, borderwidth=5)
+e21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21, borderwidth=3)
+ee21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21E, borderwidth=3)
 
-e22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22, borderwidth=5)
-ee22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22E, borderwidth=5)
+e22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22, borderwidth=3)
+ee22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22E, borderwidth=3)
 
-e23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23, borderwidth=5)
-ee23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23E, borderwidth=5)
+e23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23, borderwidth=3)
+ee23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23E, borderwidth=3)
 
-e24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24, borderwidth=5)
-ee24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24E, borderwidth=5)
+e24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24, borderwidth=3)
+ee24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24E, borderwidth=3)
 
-e26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25, borderwidth=5)
-ee26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25E, borderwidth=5)
+e26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25, borderwidth=3)
+ee26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25E, borderwidth=3)
 
 # first entry ------------------------
-lEURONET = Label(my_frame1, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
-lEURONET2 = Label(my_frame1, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
-eNET = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet, borderwidth=5)
-eNET2 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet2, borderwidth=5)
+lEURONET = Label(my_frame1, text="LEI", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+lEURONET2 = Label(my_frame1, text="EURO", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+eNET = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet, borderwidth=3)
+eNET2 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet2, borderwidth=3)
 
+
+
+eurolabel1 = Label(my_frame1, text=f"1 Euro = {exchange_rate}", font=("Arial Bold", 10), fg="Black", bg='white')
+eurolabel2 = Label(my_frame2, text=f"1 Euro = {exchange_rate}", font=("Arial Bold", 10), fg="Black", bg='white')
+eurolabel1.place(x= 70, y= 350)
+eurolabel2.place(x= 70, y= 350)
 # contributii place
 l20.place(x=500, y=70)
 l21.place(x=500, y=100)
@@ -774,41 +785,48 @@ lEURONET.place(x=170, y=40)
 
 #contributii frame 2
 
-euroLK = Label(my_frame2, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
-leiLK = Label(my_frame2, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
-l20K = Label(my_frame2, text="Contributii angajat:", font=("Arial", 10), fg="Black", bg='#0099FF')
+euroLK = Label(my_frame2, text="EURO", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+leiLK = Label(my_frame2, text="LEI", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l20K = Label(my_frame2, text="Contributii angajat:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
-l21K = Label(my_frame2, text="CAS:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l22K = Label(my_frame2, text="CASS:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l23K = Label(my_frame2, text="DP:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l24K = Label(my_frame2, text="Impozit:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l21K = Label(my_frame2, text="CAS:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l22K = Label(my_frame2, text="CASS:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l23K = Label(my_frame2, text="Deducere personala:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l24K = Label(my_frame2, text="Impozit pe venit :", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
-l25K = Label(my_frame2, text="Contributii angajator:", font=("Arial", 10), fg="Black", bg='#0099FF')
-l26K = Label(my_frame2, text="CAM:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l25K = Label(my_frame2, text="Contributii angajator:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
+l26K = Label(my_frame2, text="CAM:", font=("Arial Bold", 10), fg="Black", bg='#89CFF0')
 
 # entry variable
 
-e21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21k, borderwidth=5)
-ee21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21Ek, borderwidth=5)
+e21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21k, borderwidth=3)
+ee21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21Ek, borderwidth=3)
 
-e22K= Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22k, borderwidth=5)
-ee22K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22Ek, borderwidth=5)
+e22K= Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22k, borderwidth=3)
+ee22K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22Ek, borderwidth=3)
 
-e23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23k, borderwidth=5)
-ee23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23Ek, borderwidth=5)
+e23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23k, borderwidth=3)
+ee23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23Ek, borderwidth=3)
 
-e24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24k, borderwidth=5)
-ee24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24Ek, borderwidth=5)
+e24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24k, borderwidth=3)
+ee24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24Ek, borderwidth=3)
 
-e26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25k, borderwidth=5)
-ee26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25Ek, borderwidth=5)
+e26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25k, borderwidth=3)
+ee26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25Ek, borderwidth=3)
 
 # first entry ------------------------
-lEURONETK = Label(my_frame2, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
-lEURONET2K = Label(my_frame2, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
-eNETK = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronetk, borderwidth=5)
-eNET2K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronet2k, borderwidth=5)
-
+lEURONETK = Label(my_frame2, text="LEI", font=("Arial bold", 10), fg="Black", bg='#89CFF0')
+lEURONET2K = Label(my_frame2, text="EURO", font=("Arial bold", 10), fg="Black", bg='#89CFF0')
+eNETK = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronetk, borderwidth=3)
+eNET2K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronet2k, borderwidth=3)
+dataora = Label(my_frame1, text=f"{date:%A, %B %d, %Y}", font=("Arial bold", 10))
+dataora1 = Label(my_frame2, text=f"{date:%A, %B %d, %Y}", font=("Arial bold", 10))
+dataora.place(x= 800, y= 350)
+dataora1.place(x= 800, y= 350)
+avertisment1 = Label(my_frame1, text="(EX:0,1,2..)", font=("Arial bold", 10), fg="Black", bg='#89CFF0')
+avertisment2 = Label(my_frame2, text="(EX:0,1,2..)", font=("Arial bold", 10), fg="Black", bg='#89CFF0')
+avertisment1.place(x=350, y=105)
+avertisment2.place(x=350, y=105)
 # contributii place
 l20K.place(x=500, y=70)
 l21K.place(x=500, y=100)
@@ -856,11 +874,11 @@ lEURONETK.place(x=170, y=40)
 l2.place(x=20, y=70)
 e1.place(x=170, y=70)
 l3.place(x=20, y=100)
-e2.place(x=170, y=100)
+e2.place(x=180, y=100)
 l4.place(x=20, y=70)
 e3.place(x=170, y=70)
 l5.place(x=20, y=100)
-e4.place(x=170, y=100)
+e4.place(x=180, y=100)
 b1.place(x=60, y=200)
 l6.place(x=20, y=260)
 e5.place(x=170, y=260)
