@@ -1,8 +1,21 @@
 from tkinter import *
 from tkinter import ttk
-
-
+from ttkthemes import themed_tk as tk1
 import tkinter as tk
+import requests
+
+url = "https://api.apilayer.com/exchangerates_data/latest?symbols=RON&base=EUR"
+
+payload = {}
+headers= {
+  "apikey": "iuGyKo2kbkA02aHdzQF3pIJLKruKpW5A"
+}
+
+response = requests.request("GET", url, headers=headers, data = payload)
+
+status_code = response.status_code
+result = response.json()
+exchange_rate = result['rates']["RON"]
 
 def CAS(x):
     return x*25/100
@@ -412,6 +425,42 @@ def CalculatorPTSAlariuNET():
     e5.config(state='normal')
     e5.delete(0, tk.END)
     e5.config(state='disabled')
+    e21.config(state='normal')
+    e21.delete(0, tk.END)
+    e21.config(state='disabled')
+    e22.config(state='normal')
+    e22.delete(0, tk.END)
+    e22.config(state='disabled')
+    e23.config(state='normal')
+    e23.delete(0, tk.END)
+    e23.config(state='disabled')
+    e24.config(state='normal')
+    e24.delete(0, tk.END)
+    e24.config(state='disabled')
+    e26.config(state='normal')
+    e26.delete(0, tk.END)
+    e26.config(state='disabled')
+    ee21.config(state='normal')
+    ee21.delete(0, tk.END)
+    ee21.config(state='disabled')
+    ee22.config(state='normal')
+    ee22.delete(0, tk.END)
+    ee22.config(state='disabled')
+    ee23.config(state='normal')
+    ee23.delete(0, tk.END)
+    ee23.config(state='disabled')
+    ee24.config(state='normal')
+    ee24.delete(0, tk.END)
+    ee24.config(state='disabled')
+    ee26.config(state='normal')
+    ee26.delete(0, tk.END)
+    ee26.config(state='disabled')
+    eNET2.config(state='normal')
+    eNET2.delete(0, tk.END)
+    eNET2.config(state='disabled')
+    eNET.config(state='normal')
+    eNET.delete(0, tk.END)
+    eNET.config(state='disabled')
     a = int(e1.get())
     p = int(e2.get())
     b = round(CAS(a))
@@ -421,14 +470,93 @@ def CalculatorPTSAlariuNET():
     d = round(ImpozitPeVenit(Dimp))
     x = round(CAM(a))
     exe = SALARIUNET(a, b, c, d)
+    netEntry = round(a/exchange_rate)
+    exeEUR = round(exe/exchange_rate)
+    bEUR = round(b/exchange_rate)
+    cEUR = round(c/exchange_rate)
+    eEUR = round(e/exchange_rate)
+    dEUR = round(d/exchange_rate)
+    xEUR = round(x/exchange_rate)
     e5.config(state='normal')
     e5.insert(0, exe)
     e5.config(state='disabled')
+    e21.config(state='normal')
+    e21.insert(0, b)
+    e21.config(state='disabled')
+    e22.config(state='normal')
+    e22.insert(0, c)
+    e22.config(state='disabled')
+    e23.config(state='normal')
+    e23.insert(0, e)
+    e23.config(state='disabled')
+    e24.config(state='normal')
+    e24.insert(0, d)
+    e24.config(state='disabled')
+    e26.config(state='normal')
+    e26.insert(0, x)
+    e26.config(state='disabled')
+    ee21.config(state='normal')
+    ee21.insert(0, bEUR)
+    ee21.config(state='disabled')
+    ee22.config(state='normal')
+    ee22.insert(0, cEUR)
+    ee22.config(state='disabled')
+    ee23.config(state='normal')
+    ee23.insert(0, eEUR)
+    ee23.config(state='disabled')
+    ee24.config(state='normal')
+    ee24.insert(0, dEUR)
+    ee24.config(state='disabled')
+    ee26.config(state='normal')
+    ee26.insert(0, xEUR)
+    ee26.config(state='disabled')
+    eNET2.config(state='normal')
+    eNET2.insert(0, exeEUR)
+    eNET2.config(state='disabled')
+    eNET.config(state='normal')
+    eNET.insert(0, netEntry)
+    eNET.config(state='disabled')
 
 def CalculatorPTSAlariuBrut():
     e10.config(state='normal')
     e10.delete(0, tk.END)
     e10.config(state='disabled')
+    e21K.config(state='normal')
+    e21K.delete(0, tk.END)
+    e21K.config(state='disabled')
+    e22K.config(state='normal')
+    e22K.delete(0, tk.END)
+    e22K.config(state='disabled')
+    e23K.config(state='normal')
+    e23K.delete(0, tk.END)
+    e23K.config(state='disabled')
+    e24K.config(state='normal')
+    e24K.delete(0, tk.END)
+    e24K.config(state='disabled')
+    e26K.config(state='normal')
+    e26K.delete(0, tk.END)
+    e26K.config(state='disabled')
+    ee21K.config(state='normal')
+    ee21K.delete(0, tk.END)
+    ee21K.config(state='disabled')
+    ee22K.config(state='normal')
+    ee22K.delete(0, tk.END)
+    ee22K.config(state='disabled')
+    ee23K.config(state='normal')
+    ee23K.delete(0, tk.END)
+    ee23K.config(state='disabled')
+    ee24K.config(state='normal')
+    ee24K.delete(0, tk.END)
+    ee24K.config(state='disabled')
+    ee26K.config(state='normal')
+    ee26K.delete(0, tk.END)
+    ee26K.config(state='disabled')
+    eNET2K.config(state='normal')
+    eNET2K.delete(0, tk.END)
+    eNET2K.config(state='disabled')
+    eNETK.config(state='normal')
+    eNETK.delete(0, tk.END)
+    eNETK.config(state='disabled')
     q = int(e3.get())
     p = int(e4.get())
     a = round(q/0.585)
@@ -439,24 +567,60 @@ def CalculatorPTSAlariuBrut():
     d = round(ImpozitPeVenit(Dimp))
     x = round(CAM(a))
     exe = SALARIUNET(a, b, c, d)
+    netEntry = round(exe / exchange_rate)
+    exeEUR = round(a / exchange_rate)
+    bEUR = round(b / exchange_rate)
+    cEUR = round(c / exchange_rate)
+    eEUR = round(e / exchange_rate)
+    dEUR = round(d / exchange_rate)
+    xEUR = round(x / exchange_rate)
     e10.config(state='normal')
     e10.insert(0, a)
     e10.config(state='disabled')
+    e21K.config(state='normal')
+    e21K.insert(0, b)
+    e21K.config(state='disabled')
+    e22K.config(state='normal')
+    e22K.insert(0, c)
+    e22K.config(state='disabled')
+    e23K.config(state='normal')
+    e23K.insert(0, e)
+    e23K.config(state='disabled')
+    e24K.config(state='normal')
+    e24K.insert(0, d)
+    e24K.config(state='disabled')
+    e26K.config(state='normal')
+    e26K.insert(0, x)
+    e26K.config(state='disabled')
+    ee21K.config(state='normal')
+    ee21K.insert(0, bEUR)
+    ee21K.config(state='disabled')
+    ee22K.config(state='normal')
+    ee22K.insert(0, cEUR)
+    ee22K.config(state='disabled')
+    ee23K.config(state='normal')
+    ee23K.insert(0, eEUR)
+    ee23K.config(state='disabled')
+    ee24K.config(state='normal')
+    ee24K.insert(0, dEUR)
+    ee24K.config(state='disabled')
+    ee26K.config(state='normal')
+    ee26K.insert(0, xEUR)
+    ee26K.config(state='disabled')
+    eNET2K.config(state='normal')
+    eNET2K.insert(0, exeEUR)
+    eNET2K.config(state='disabled')
+    eNETK.config(state='normal')
+    eNETK.insert(0, netEntry)
+    eNETK.config(state='disabled')
 
 
 
 
-
-
-
-
-
-
-
-
-
-root = Tk()
-root.geometry("1000x600")
+root = tk1.ThemedTk()
+root.get_themes()
+root.set_theme("plastik")
+root.geometry("1200x500")
 root.config(bg="white")
 root.resizable(width=False, height=False)
 root.title('Calculator Salarii')
@@ -464,8 +628,8 @@ root.title('Calculator Salarii')
 my_notebook = ttk.Notebook(root)
 my_notebook.pack(pady=15)
 
-my_frame1 = Frame(my_notebook, width=1000, height=600, bg='#0099FF')
-my_frame2 = Frame(my_notebook, width=1000, height=600, bg='#0099FF')
+my_frame1 = Frame(my_notebook, width=1200, height=600, bg='#0099FF')
+my_frame2 = Frame(my_notebook, width=1200, height=600, bg='#0099FF')
 
 my_frame1.pack(fill='both', expand=1)
 my_frame2.pack(fill='both', expand=1)
@@ -481,28 +645,47 @@ v4 = StringVar()
 v5 = StringVar()
 v10 = StringVar()
 
+v21 = StringVar()
+v22 = StringVar()
+v23 = StringVar()
+v24 = StringVar()
+v25 = StringVar()
+
+v21E = StringVar()
+v22E = StringVar()
+v23E = StringVar()
+v24E = StringVar()
+v25E = StringVar()
+
+euronet = StringVar()
+euronet2 = StringVar()
+
+v21k = StringVar()
+v22k = StringVar()
+v23k = StringVar()
+v24k = StringVar()
+v25k = StringVar()
+
+v21Ek = StringVar()
+v22Ek = StringVar()
+v23Ek = StringVar()
+v24Ek = StringVar()
+v25Ek = StringVar()
+
+euronetk = StringVar()
+euronet2k = StringVar()
 
 
-
-
-
-l2 = Label(my_frame1, text="Salariu brut:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l2 = Label(my_frame1, text="Salariu brut*:", font=("Arial", 10), fg="Black", bg='#0099FF')
 e1 = Entry(my_frame1, font=("Arial", 11), textvariable=v1, borderwidth=5)
 
-l3 = Label(my_frame1, text="Persoane in intretinere:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l3 = Label(my_frame1, text="Persoane in intretinere*:", font=("Arial", 10), fg="Black", bg='#0099FF')
 e2 = Entry(my_frame1, font=("Arial", 11), textvariable=v2, borderwidth=5)
-
-b1 = Button(my_frame1, text="Calcul salariu net", font=("Arial", 15), command=CalculatorPTSAlariuNET, bg='#0099FF')
+# Calculnet_btn = PhotoImage(file='desktop/calculate-buton-md.png')
+b1 = ttk.Button(my_frame1, text="Calcul salariu net",  command=CalculatorPTSAlariuNET )
 
 l6 = Label(my_frame1, text="Salariu NET", font=("Arial", 10), fg="Black", bg='#0099FF')
 e5 = Entry(my_frame1, font=("Arial", 11), state='disabled', textvariable=v5, borderwidth=5)
-
-
-
-
-
-
-
 
 
 l4 = Label(my_frame2, text="Salariu net:", font=("Arial", 10), fg="Black", bg='#0099FF')
@@ -511,10 +694,156 @@ e3 = Entry(my_frame2, font=("Arial", 11), textvariable=v3, borderwidth=5)
 l5 = Label(my_frame2, text="Persoane in intretinere:", font=("Arial", 10), fg="Black", bg='#0099FF')
 e4 = Entry(my_frame2, font=("Arial", 11), textvariable=v4, borderwidth=5)
 
-b2 = Button(my_frame2, text="Calcul salariu brut", font=("Arial", 15), command=CalculatorPTSAlariuBrut, bg='#0099FF')
+b2 = ttk.Button(my_frame2, text="Calcul salariu brut",  command=CalculatorPTSAlariuBrut)
 
 l10 = Label(my_frame2, text="Salariu Brut", font=("Arial", 10), fg="Black", bg='#0099FF')
 e10 = Entry(my_frame2, font=("Arial", 11), state='disabled', textvariable=v10, borderwidth=5)
+
+
+
+#contributii frame 1
+euroL = Label(my_frame1, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
+leiL = Label(my_frame1, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
+l20 = Label(my_frame1, text="Contributii angajat:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+l21 = Label(my_frame1, text="CAS:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l22 = Label(my_frame1, text="CASS:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l23 = Label(my_frame1, text="DP:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l24 = Label(my_frame1, text="Impozit:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+l25 = Label(my_frame1, text="Contributii angajator:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l26 = Label(my_frame1, text="CAM:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+# entry variable
+
+e21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21, borderwidth=5)
+ee21 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v21E, borderwidth=5)
+
+e22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22, borderwidth=5)
+ee22 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v22E, borderwidth=5)
+
+e23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23, borderwidth=5)
+ee23 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v23E, borderwidth=5)
+
+e24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24, borderwidth=5)
+ee24 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v24E, borderwidth=5)
+
+e26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25, borderwidth=5)
+ee26 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=v25E, borderwidth=5)
+
+# first entry ------------------------
+lEURONET = Label(my_frame1, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
+lEURONET2 = Label(my_frame1, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
+eNET = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet, borderwidth=5)
+eNET2 = Entry(my_frame1,font=("Arial", 11), state='disabled', textvariable=euronet2, borderwidth=5)
+
+# contributii place
+l20.place(x=500, y=70)
+l21.place(x=500, y=100)
+l22.place(x=500, y=130)
+l23.place(x=500, y=160)
+l24.place(x=500, y=190)
+l25.place(x=500, y=250)
+l26.place(x=500, y=280)
+
+e21.place(x=700, y=100)
+e22.place(x=700, y=130)
+e23.place(x=700, y=160)
+e24.place(x=700, y=190)
+e26.place(x=700, y=280)
+
+ee21.place(x=850, y=100)
+ee22.place(x=850, y=130)
+ee23.place(x=850, y=160)
+ee24.place(x=850, y=190)
+ee26.place(x=850, y=280)
+
+leiL.place(x=700, y=70)
+euroL.place(x=980, y=70)
+
+# ---------------
+
+
+lEURONET2.place(x=300, y=40)
+eNET.place(x=300, y=70)
+eNET2.place(x=300, y=260)
+lEURONET.place(x=170, y=40)
+
+
+
+
+#contributii frame 2
+
+euroLK = Label(my_frame2, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
+leiLK = Label(my_frame2, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
+l20K = Label(my_frame2, text="Contributii angajat:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+l21K = Label(my_frame2, text="CAS:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l22K = Label(my_frame2, text="CASS:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l23K = Label(my_frame2, text="DP:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l24K = Label(my_frame2, text="Impozit:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+l25K = Label(my_frame2, text="Contributii angajator:", font=("Arial", 10), fg="Black", bg='#0099FF')
+l26K = Label(my_frame2, text="CAM:", font=("Arial", 10), fg="Black", bg='#0099FF')
+
+# entry variable
+
+e21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21k, borderwidth=5)
+ee21K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v21Ek, borderwidth=5)
+
+e22K= Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22k, borderwidth=5)
+ee22K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v22Ek, borderwidth=5)
+
+e23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23k, borderwidth=5)
+ee23K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v23Ek, borderwidth=5)
+
+e24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24k, borderwidth=5)
+ee24K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v24Ek, borderwidth=5)
+
+e26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25k, borderwidth=5)
+ee26K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=v25Ek, borderwidth=5)
+
+# first entry ------------------------
+lEURONETK = Label(my_frame2, text="LEI", font=("Arial", 10), fg="Black", bg='#0099FF')
+lEURONET2K = Label(my_frame2, text="EURO", font=("Arial", 10), fg="Black", bg='#0099FF')
+eNETK = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronetk, borderwidth=5)
+eNET2K = Entry(my_frame2,font=("Arial", 11), state='disabled', textvariable=euronet2k, borderwidth=5)
+
+# contributii place
+l20K.place(x=500, y=70)
+l21K.place(x=500, y=100)
+l22K.place(x=500, y=130)
+l23K.place(x=500, y=160)
+l24K.place(x=500, y=190)
+l25K.place(x=500, y=250)
+l26K.place(x=500, y=280)
+
+e21K.place(x=700, y=100)
+e22K.place(x=700, y=130)
+e23K.place(x=700, y=160)
+e24K.place(x=700, y=190)
+e26K.place(x=700, y=280)
+
+ee21K.place(x=850, y=100)
+ee22K.place(x=850, y=130)
+ee23K.place(x=850, y=160)
+ee24K.place(x=850, y=190)
+ee26K.place(x=850, y=280)
+
+leiLK.place(x=700, y=70)
+euroLK.place(x=980, y=70)
+
+# ---------------
+
+
+lEURONET2K.place(x=300, y=40)
+eNETK.place(x=300, y=70)
+eNET2K.place(x=300, y=260)
+lEURONETK.place(x=170, y=40)
+
+
+
+
 
 
 
